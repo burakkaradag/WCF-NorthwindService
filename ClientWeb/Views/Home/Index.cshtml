@@ -1,0 +1,47 @@
+﻿@model ClientWeb.Models.ProductModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<form method="get" action="/Model/Ekle">
+    <button class="btn btn-primary">ekle</button>
+
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th> urun ıd </th>
+            <th> urun ad </th>
+            <th> birim fiyat </th>
+            <th> Sürüm Kod </th>
+           
+            <th> Detay </th>
+            <th> guncelle </th>
+            <th> Sil </th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ulist)
+        {
+            <tr>
+                <td>@item.UrunID</td>
+                <td>@item.UrunAd</td>
+                <td>@item.BirimFiyat</td>
+                <td>@item.SurumKodu</td>
+      
+                <td><a href="/Model/Detay/@item.UrunID"><i class="fas fa-pen"></i></a></td>
+                <td><a href="/Model/Guncel/@item.UrunID"><i class="fas fa-pen"></i></a></td>
+                <td><a href="/Model/Sil/@item.UrunID"><i class="fas fa-pen"></i></a></td>
+
+
+            </tr>
+        }
+
+    </tbody>
+</table>
